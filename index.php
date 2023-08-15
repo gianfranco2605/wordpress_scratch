@@ -17,11 +17,14 @@
         <?php get_template_part('templates-parts/nav')?>
         <!-- end bootstrap navbar -->
 
+        <!-- carousel bootstrap -->
+        <?php get_template_part('templates-parts/slider')?>
+
         <?php 
             if( have_posts() ) {
                 // loop
                 while( have_posts() ) {
-                    //avoid infiniti loop
+                    //avoid infinity loop
                     the_post();
                     ?>
                         <h1><? the_title() ?></h1>
