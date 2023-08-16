@@ -20,3 +20,8 @@ body {
     border: solid thin black;
     padding: 15px;
 }
+
+.custom-logo{
+    max-width: 200px;
+    max-height: 200px;
+}

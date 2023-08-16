@@ -2,7 +2,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- get_home_url() = homepage -->
         <!-- < ? = is the same as < ? php echo -->
-        <a class="navbar-brand" href="<?= get_home_url(); ?>">Navbar</a>
+        
+
+        <?php 
+            if ( has_custom_logo()) {
+                the_custom_logo();
+            } else {
+                ?>
+                <a class="navbar-brand site-title" href="<?= get_home_url(); ?>">
+                <?php bloginfo('name'); ?>
+                </a>
+                <?php
+            }
+        ?>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,7 +25,7 @@
             <ul class="navbar-nav">
 
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="<?= get_home_url();?>">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
@@ -44,3 +56,12 @@
 
     </nav>
 <!-- end bootstrap navbar -->
+
+<?php
+wp_nav_menu(
+    array(
+        'theme_location' => 'header-menu',
+        'container-class' => 'extra-menu'
+    )
+)
+?>

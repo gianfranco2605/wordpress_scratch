@@ -26,3 +26,30 @@ function razorsharp_add_stuff() {
 
 add_action('init', 'razorsharp_add_stuff');
 
+
+// Another way to add actions, as a callback 
+add_action('after_setup_theme', function() {
+    $defaults = array(
+        'height' => 100,
+        'width' => 400,
+        'flex-heigth' => true,
+        'flex-width' => true,
+        'header-text' => array('site-title', 'site-description'),
+        'unlink-homepage-log' => true,
+    );
+
+    add_theme_support('custom-logo', $defaults);
+});
+
+// register menu
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'Header Menu' ),
+            'footer-menu' => __( 'Extra Menu' ),
+        )
+    );
+}
+
+add_action( 'init', 'register_my_menus' );
+
