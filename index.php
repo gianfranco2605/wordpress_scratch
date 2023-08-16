@@ -1,41 +1,40 @@
-<!DOCTYPE html>
-<html <?php language_attributes( ) ?>>
-    <head>
-        <meta charset="<?php bloginfo( 'charset' ) ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="<?php bloginfo('description') ?>">
-        <title><?php bloginfo( 'info' ) ?></title>
-        <!-- wordpress styles scripts meta links -->
-        <?php wp_head() ?>
-    </head>
-    <!-- body classes -->
-    <body <?php body_class() ?>>
-        <!-- body script -->
-        <?php wp_body_open() ?>
-
-        <!-- start bootstrap navbar -->
-        <?php get_template_part('templates-parts/nav')?>
-        <!-- end bootstrap navbar -->
+<?php
+        
+        get_header();
+?>
 
         <!-- carousel bootstrap -->
-        <?php get_template_part('templates-parts/slider')?>
-
-        <?php 
-            if( have_posts() ) {
-                // loop
-                while( have_posts() ) {
-                    //avoid infinity loop
-                    the_post();
-                    ?>
-                        <h1><? the_title() ?></h1>
-                        <p><?php the_content() ?></p> <!--i can use the the_excerpt() just to see part of the paragraph-->
-                        <hr>
-                    <?php
-                }
-            }
+        <?php if( is_home() ) {
+            get_template_part('templates-parts/slider');
+        };
         ?>
 
-        <!-- adminbar -->
-        <?php wp_footer() ?>   
-    </body>
-</html>
+        <div class="p-4 card-group justify-content-around">
+
+            <?php 
+                if( have_posts() ) {
+                    // loop
+                    while( have_posts() ) {
+                        //avoid infinity loop
+                        the_post();
+                        // in case of not single page
+                        // if( is_single() ) {
+                            // single post 
+                            // get_template_part('templates-parts/single-post');
+                        // } else {
+                            // homepage
+                            get_template_part('templates-parts/post');
+                        }
+                        
+                    }
+                // }
+
+                
+            ?>
+           
+        </div>
+        <br>
+        <div class="d-flex justify-content-center"><?php the_posts_pagination(); ?></div>
+        
+
+<?php get_footer() ?>   

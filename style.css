@@ -5,3 +5,18 @@ Version: 1.0
 Description: Theme from Scratch
 Tags: razor, sharp, cool, blog
 **/
+
+img {
+    max-width: 100% !important;
+}
+
+body {
+    background-color: blue;
+}
+
+
+
+.page-numbers {
+    border: solid thin black;
+    padding: 15px;
+}
