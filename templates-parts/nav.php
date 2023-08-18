@@ -22,29 +22,17 @@
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
-            <ul class="navbar-nav">
-
-            <li class="nav-item active">
-                <a class="nav-link" href="<?= get_home_url();?>">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-
-            </ul>
+        <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'header-menu',
+                    'container_class' => 'collapse navbar-collapse',
+                    'container_id' => 'navbarNavDropdown',  
+                    'menu_class' => 'navbar-nav',
+                    'walker' => new header_menu_walker(),
+                )
+            )
+            ?>
 
             <form class="form-inline my-2 mr-lg-0" action="<?php home_url() ?>">
             <!-- input name="s" important!!!  -->
@@ -53,15 +41,7 @@
             </form>
             
         </div>
-
+        
     </nav>
 <!-- end bootstrap navbar -->
 
-<?php
-wp_nav_menu(
-    array(
-        'theme_location' => 'header-menu',
-        'container-class' => 'extra-menu'
-    )
-)
-?>

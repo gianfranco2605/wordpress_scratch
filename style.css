@@ -22,6 +22,49 @@ body {
 }
 
 .custom-logo{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 70px;
+    max-height: 150px;
 }
+
+/* Style Nav bar */
+/* #menu-main-menu {
+    display: flex;
+    position: relative;
+    
+}
+
+#menu-main-menu li:hover .menu-item-32 {
+    display: block;
+}
+
+
+
+#menu-main-menu .menu-item-32 {
+    position: absolute;
+    left: 40px;
+    top: 35px;
+    display: none;
+}
+
+
+#menu-main-menu li {
+    padding: 5px;
+    border-right: solid thin #aaa;
+    border-left: solid thin #ccc;
+    list-style: none;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+#menu-main-menu li:hover {
+    background-color: #e6e6e6;
+}
+
+#menu-main-menu li a {
+    text-decoration: none;
+    color: black;
+}
+
+.carousel-item {
+    margin-top: 50px;
+} */
