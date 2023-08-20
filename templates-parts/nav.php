@@ -37,7 +37,7 @@
             <form class="form-inline my-2 mr-lg-0" action="<?php home_url() ?>">
             <!-- input name="s" important!!!  -->
                 <input name="s" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
             
         </div>

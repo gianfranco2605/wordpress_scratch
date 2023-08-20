@@ -141,6 +141,11 @@ class header_menu_walker extends Walker {
 		$classes = array();
 		$classes[] = 'nav-item';
 
+		// dropdown item
+		if($this->has_children){
+			$classes[] = 'dropdown';
+		}
+
 		/**
 		 * Filters the arguments for a single nav menu item.
 		 *
@@ -223,6 +228,23 @@ class header_menu_walker extends Walker {
 
 		$atts['aria-current'] = $menu_item->current ? 'page' : '';
 		$atts['class'] = 'nav-link';
+
+		if($depth > 0){
+
+			$atts['class'] = 'nav-link dropdown-item';
+
+		}
+
+		if($this->has_children){
+
+			$atts['class'] = 'nav-link dropdown-toggle';
+			$atts['href'] = 'https://wordpressscratch.local/';
+			$atts['id'] = 'navbarDropdown';
+			$atts['role'] = 'button';
+			$atts['data-toggle'] = 'dropdown';
+			$atts['aria-haspopup'] = 'true';
+			$atts['aria-expanded'] = 'false';
+		}
 
 		/**
 		 * Filters the HTML attributes applied to a menu item's anchor element.
