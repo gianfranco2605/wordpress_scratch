@@ -8,28 +8,31 @@
             get_template_part('templates-parts/slider');
         };
         ?>
+        <div class="container-fluid">
+            <div class="row justify-content-center">       
+                <div class="p-4 card-group justify-content-around">
 
-        <div class="p-4 card-group justify-content-around">
-
-            <?php 
-                if( have_posts() ) {
-                    // loop
-                    while( have_posts() ) {
-                        //avoid infinity loop
-                        the_post();
-                        // in case of not single page
-                        // if( is_single() ) {
-                            // single post 
-                            // get_template_part('templates-parts/single-post');
-                        // } else {
-                            // homepage
-                            get_template_part('templates-parts/post');
-                        }
-                        
-                    }
-                // }               
-            ?>
-           
+                    <?php 
+                        if( have_posts() ) {
+                            // loop
+                            while( have_posts() ) {
+                                //avoid infinity loop
+                                the_post();
+                                // in case of not single page
+                                // if( is_single() ) {
+                                    // single post 
+                                    // get_template_part('templates-parts/single-post');
+                                // } else {
+                                    // homepage
+                                    get_template_part('templates-parts/post');
+                                }
+                                
+                            }
+                        // }               
+                    ?>         
+                </div>
+                <div class="col-md-3 bg-gray p-2">Widget Area</div>
+            </div>
         </div>
         <br>
         <div class="d-flex justify-content-center"><?php the_posts_pagination(); ?></div>
