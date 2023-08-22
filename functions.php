@@ -53,7 +53,6 @@ function register_my_menus() {
 
 add_action( 'init', 'register_my_menus' );
 
-require get_template_directory() . '/templates-parts/walker.php';
 
 // register sidebars 
 function themename_widgets_init() {
@@ -86,5 +85,7 @@ function themename_widgets_init() {
 add_action('widgets_init', 'themename_widgets_init');
 
 
-
+// template parts walker, widgets 
+require get_template_directory() . '/templates-parts/walker.php';
+require get_template_directory() . '/templates-parts/widgets.php';
 
