@@ -39,6 +39,7 @@
                 <input name="s" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <form role="search" method="get" action="http://wordpressscratch.local/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-2" placeholder="Search Blogs" value="" type="search" name="s" required=""><button aria-label="Search" class="wp-block-search__button wp-element-button" type="submit">Search</button></div></form>
             
         </div>
         

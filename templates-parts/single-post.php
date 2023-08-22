@@ -15,8 +15,6 @@
     <p class="text-muted"><?php the_time('M j, Y'); ?> | by <?php the_author(); ?> </p>
     <p class="text-muted"><?php the_time('F j, Y'); ?></p> 
     <p class="card-text"><?= the_content() ?></p>
-    <a href="<?php the_permalink() ?>" class="btn btn-primary">Read More</a>
-    
   </div>
   
 </div>
