@@ -38,6 +38,26 @@
                 </div>
             </div>
         </div>
+
+        <!-- wp_query -->
+          <div class="p-4 card-group justify-content-around">
+
+                    <?php
+                        $args = ['category_name'=>'woks', 'post_type'=>'post'];
+
+                        $my_post = new WP_Query( $args );
+
+                        if( $my_post->have_posts() ) {
+                            while($my_post->have_posts() ) {
+                                $my_post->the_post();
+                                    get_template_part('templates-parts/post');
+                                }
+                                
+                            }
+                            // restore original post data
+                            wp_reset_postdata();
+                    ?>         
+        </div>
         <br>
         <div class="d-flex justify-content-center"><?php the_posts_pagination(); ?></div>
         
