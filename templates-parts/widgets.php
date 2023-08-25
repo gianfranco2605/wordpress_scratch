@@ -18,8 +18,28 @@ class My_Widget_most_posts extends WP_Widget {
 	);
 
 	public function widget( $args, $instance ) {
+
+		echo $args['before_widget'];
+		if ( ! empty( $instance['title'] ) ) {
+			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+		}
 		
-		
+		$args = [
+			'meta_key' => 'views',
+			'post_type' => 'post',
+			'posts_per_page' => '2',
+			'orderby' => 'meta_value_num',
+			'order' => 'DESC'
+
+		];
+		$myposts = new WP_Query( $args );
+		if($myposts->have_posts()){
+			while($myposts->have_posts()) {
+				$myposts->the_post();
+				get_template_part('templates-parts/post-sidebar');
+
+			}
+		}
 	}
 
 	public function form( $instance ) {

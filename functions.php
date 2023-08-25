@@ -21,6 +21,7 @@ function razorsharp_add_stuff() {
     add_theme_support('post-thumbnails');
 
     add_image_size('post-preview', 280, 180, true);
+    add_image_size('post-preview-small', 100, 100, true);
 
 };
 
