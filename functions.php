@@ -90,3 +90,92 @@ add_action('widgets_init', 'themename_widgets_init');
 require get_template_directory() . '/templates-parts/walker.php';
 require get_template_directory() . '/templates-parts/widgets.php';
 
+
+// Customize API(customize panel section)
+
+function themeslug_customize_register( $wp_customize ) {
+    // Do stuff with $wp_customize, the WP_Customize_Manager object.
+    // Image slider section dashboard
+    $wp_customize->add_section( 'razzorsharp_slider_settings', array(
+        'title' => __( 'Slide Image' ),
+        'description' => __( 'Edit Slider Image' ),
+        'priority' => 160,
+        'capability' => 'edit_theme_options',
+      ) );
+      //slider image 1
+      $wp_customize->add_setting( 'razzorsharp_slider_image_1', array(
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => '',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+      ) );
+
+      $wp_customize->add_control(
+		new WP_Customize_Cropped_Image_Control(
+			$wp_customize,
+			'razzorsharp_slider_image_1',
+			array(
+				'label'      => __( 'Slider Image 1', 'Text Domain' ),
+				'section'    => 'razzorsharp_slider_settings',
+				'height'=>200, // cropper Height
+				'width'=>1000, // Cropper Width
+				'flex_width'=>false, //Flexible Width
+				'flex_height'=>false, // Flexible Heiht
+			)
+		)
+        
+	);
+
+    //slider image 2
+    $wp_customize->add_setting( 'razzorsharp_slider_image_2', array(
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => '',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+      ) );
+
+      $wp_customize->add_control(
+		new WP_Customize_Cropped_Image_Control(
+			$wp_customize,
+			'razzorsharp_slider_image_2',
+			array(
+				'label'      => __( 'Slider Image 2', 'Text Domain' ),
+				'section'    => 'razzorsharp_slider_settings',
+				'height'=>200, // cropper Height
+				'width'=>1000, // Cropper Width
+				'flex_width'=>false, //Flexible Width
+				'flex_height'=>false, // Flexible Heiht
+			)
+		)
+        
+	);
+
+    //slider image 3
+    $wp_customize->add_setting( 'razzorsharp_slider_image_3', array(
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => '',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+      ) );
+
+      $wp_customize->add_control(
+		new WP_Customize_Cropped_Image_Control(
+			$wp_customize,
+			'razzorsharp_slider_image_3',
+			array(
+				'label'      => __( 'Slider Image 3', 'Text Domain' ),
+				'section'    => 'razzorsharp_slider_settings',
+				'height'=>200, // cropper Height
+				'width'=>1000, // Cropper Width
+				'flex_width'=>false, //Flexible Width
+				'flex_height'=>false, // Flexible Heiht
+			)
+		)
+        
+	);
+
+  }
+  add_action( 'customize_register', 'themeslug_customize_register' );

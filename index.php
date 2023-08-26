@@ -1,6 +1,9 @@
 <?php
         
         get_header();
+
+        // customize slider
+        
 ?>
 
         <!-- carousel bootstrap -->

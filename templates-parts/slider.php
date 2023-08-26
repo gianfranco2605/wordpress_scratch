@@ -6,13 +6,43 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?= get_template_directory_uri() . '/assets/images/one.jpg' ?>" class="d-block w-100" alt="...">
+      <!-- creating variable to change in customize section -->
+      <?php 
+
+        $image1 = get_template_directory_uri() . '/assets/images/one.jpg';
+
+        if( get_theme_mod('razzorsharp_slider_image_1', '') != "" ) {
+          $image1 = wp_get_attachment_url(get_theme_mod('razzorsharp_slider_image_1', ''));
+        }
+      
+      ?>
+
+      <?php 
+
+      $image2 = get_template_directory_uri() . '/assets/images/two.jpg';
+
+      if( get_theme_mod('razzorsharp_slider_image_2', '') != "" ) {
+        $image2 = wp_get_attachment_url(get_theme_mod('razzorsharp_slider_image_2', ''));
+      }
+
+      ?>
+
+      <?php 
+
+      $image3 = get_template_directory_uri() . '/assets/images/three.jpg';
+
+      if( get_theme_mod('razzorsharp_slider_image_3', '') != "" ) {
+        $image3 = wp_get_attachment_url(get_theme_mod('razzorsharp_slider_image_3', ''));
+      }
+
+      ?>
+      <img src="<?= $image1 ?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="<?= get_template_directory_uri() . '/assets/images/two.jpg' ?>" class="d-block w-100" alt="...">
+      <img src="<?= $image2 ?>" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="<?= get_template_directory_uri() . '/assets/images/three.jpg' ?>" class="d-block w-100" alt="...">
+      <img src="<?= $image3 ?>" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
