@@ -102,6 +102,102 @@ function themeslug_customize_register( $wp_customize ) {
         'priority' => 160,
         'capability' => 'edit_theme_options',
       ) );
+
+      $wp_customize->add_setting( 'razzorsharp_slider_activate', array(
+        'type' => 'theme_mod', // or 'option'
+        'capability' => 'edit_theme_options',
+        'default' => '1',
+        'transport' => 'refresh', // or postMessage
+        'sanitize_callback' => 'sanitize_text_field',
+      ) );
+
+      //activate slider setting
+      $wp_customize->add_control( 'razzorsharp_slider_activate', array(
+        'type' => 'checkbox',
+        'section' => 'razzorsharp_slider_settings', // Required, core or custom.
+        'label' => __( 'Activate Slider Settings' ),
+        'description' => __( 'Activate or deactivate the front page image slider.' ),
+        'input_attrs' => array(
+            'class' => 'my-custom-class-for-js',
+            'style' => 'border: 1px solid #900'
+        ),
+        ) );
+
+        //image text settings
+        #1
+        $wp_customize->add_setting( 'razzorsharp_slider_image_header_text_1', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+
+          $wp_customize->add_setting( 'razzorsharp_slider_image_content_text_1', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+          #2
+          $wp_customize->add_setting( 'razzorsharp_slider_image_header_text_2', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+
+          $wp_customize->add_setting( 'razzorsharp_slider_image_content_text_2', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+        #3
+          $wp_customize->add_setting( 'razzorsharp_slider_image_header_text_3', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+
+          $wp_customize->add_setting( 'razzorsharp_slider_image_content_text_3', array(
+            'type' => 'theme_mod', // or 'option'
+            'capability' => 'edit_theme_options',
+            'default' => '',
+            'transport' => 'refresh', // or postMessage
+            'sanitize_callback' => 'sanitize_text_field',
+          ) );
+
+        //   text-control
+        $wp_customize->add_control( 'razzorsharp_slider_image_header_text_1', array(
+            'type' => 'text',
+            'section' => 'razzorsharp_slider_settings', // Required, core or custom.
+            'label' => __( 'Image 1 header text' ),
+            'description' => __( 'Add some text' ),
+            'input_attrs' => array(
+                'class' => 'my-custom-class-for-js',
+                'placeholder' => 'Hello WordPress'
+            ),
+            ) );
+
+            $wp_customize->add_control( 'razzorsharp_slider_image_content_text_1', array(
+                'type' => 'textarea',
+                'section' => 'razzorsharp_slider_settings', // Required, core or custom.
+                'label' => __( 'Image 1 Content text' ),
+                'description' => __( 'Add some text' ),
+                'input_attrs' => array(
+                    'class' => 'my-custom-class-for-js',
+                    'placeholder' => 'Hello WordPress'
+                ),
+                ) );
+    
+
+
       //slider image 1
       $wp_customize->add_setting( 'razzorsharp_slider_image_1', array(
         'type' => 'theme_mod', // or 'option'

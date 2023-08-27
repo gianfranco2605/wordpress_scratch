@@ -1,3 +1,12 @@
+<?php 
+
+$slider_active = get_theme_mod('razzorsharp_slider_activate', 1);
+
+
+if ($slider_active) :  
+
+?>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -37,12 +46,31 @@
 
       ?>
       <img src="<?= $image1 ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <?php
+        
+        $header_image_1 = get_theme_mod('razzorsharp_slider_image_header_text_1', 'Hello WordPress');
+
+        $content_image_1 = get_theme_mod('razzorsharp_slider_image_content_text_1', 'Some logo text for your image');
+
+        ?>
+        <h5><?= $header_image_1 ?></h5>
+        <p><?= $content_image_1 ?></p>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="<?= $image2 ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lorem Ipsum</h5>
+        <p>Hello</p>
+      </div>
     </div>
     <div class="carousel-item">
       <img src="<?= $image3 ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Lorem Ipsum</h5>
+        <p>Hello</p>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -54,3 +82,14 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+<?php endif; ?>
+
+
+<!-- <div class="carousel-item">
+  <img src="..." alt="...">
+  <div class="carousel-caption d-none d-md-block">
+    <h5>...</h5>
+    <p>...</p>
+  </div>
+</div> -->
